@@ -126,4 +126,4 @@ Support
 =======
 
 If you are having issues, please let us know.
-There is a mailing list at: jsontas-maintainers@google-groups.com or just write an issue.
+Email tobias.persson@axis.com or just write an issue.
