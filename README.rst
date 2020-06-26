@@ -68,13 +68,13 @@ Next up, let's create our JSONTas file.
       },
       "message": {
          "$condition": {
-            "$if": {
+            "if": {
                "key": "$mode",
                "operator": "$eq",
-               "value": "dev",
-               "$then": "This is the DEV server."
+               "value": "dev"
             },
-            "$else": "This is the PROD server."
+            "then": "This is the DEV server.",
+            "else": "This is the PROD server."
          }
       }
    }

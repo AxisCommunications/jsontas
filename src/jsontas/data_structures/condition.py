@@ -26,7 +26,7 @@ class Condition(DataStructure):
     Example::
 
         {
-            "$condition" {
+            "$condition": {
                 "if": {
                     "key": "Key to match",
                     "operator": "$eq",
@@ -40,7 +40,7 @@ class Condition(DataStructure):
     Example::
 
         {
-            "$condition" {
+            "$condition": {
                 "if": [
                     {
                         "key": "Key to match",
