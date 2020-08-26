@@ -56,8 +56,6 @@ Result
    }
 
 
-Try changing the dataset 'name' from 'John Doe' to something else and look at the result.
-
 
 Condition List
 --------------
@@ -112,7 +110,6 @@ Result
       "team": "The Best Team"
    }
 
-Try changing the dataset 'name' or 'occupation' keys.
 Note that condition list is an 'AND' check so all conditions must be True for the 'then' field to execute.
 
 Expand
@@ -237,7 +234,6 @@ Result
       ]
    }
 
-Try adding more filters and employees.
 
 
 From
@@ -392,6 +388,16 @@ Result
    }
 
 
+Available operators are further explained in :obj:`jsontas.data_structures.operator`
+They are:
+
+* :$eq: :obj:`jsontas.data_structures.operator.Operator._equal`
+* :$in: :obj:`jsontas.data_structures.operator.Operator._in`
+* :$notin: :obj:`jsontas.data_structures.operator.Operator._notin`
+* :$startswith: :obj:`jsontas.data_structures.operator.Operator._startswith`
+* :$regex: :obj:`jsontas.data_structures.operator.Operator._regex`
+
+
 Request
 -------
 
@@ -487,11 +493,11 @@ JSON
                "$request": {
                   "url": "$userdata",
                   "method": "GET"
-               },
-               "interval": 1,
-               "timeout": 5,
-               "else": "No user found"
-            }
+               }
+             },
+             "interval": 1,
+             "timeout": 5,
+             "else": "No user found"
          }
       }
    }
