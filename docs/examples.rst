@@ -2,7 +2,7 @@
 Examples
 ========
 
-In order to run these examples you should create two JSON-files; one for the dataset and one for the actual JSONTas JSON file.
+In order to run these examples you need to create two JSON-files; one for the dataset and one for the actual JSONTas JSON file.
 
 Run the examples by executing
 
@@ -416,7 +416,7 @@ JSON
 
    {
       "user": {
-         "request": {
+         "$request": {
             "url": "$userdata",
             "method": "GET"
          }
@@ -484,7 +484,7 @@ JSON
       "user": {
          "$wait": {
             "for": {
-               "request": {
+               "$request": {
                   "url": "$userdata",
                   "method": "GET"
                },
@@ -617,4 +617,4 @@ Conclusion
 
 There are many crazy ways of utilizing JSONTas and it's quite impossible to write examples for each and every use-case.
 If there are any questions then please to not hestitate contacting the maintainers or writing an issue in github.
-Or just play around with it and send a PR with new examples.
+We encurage you to play around with it and send a PR with new examples.
