@@ -14,6 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 """Expand datastructure."""
+from copy import deepcopy
 from .datastructure import DataStructure
 
 # pylint:disable=too-few-public-methods
@@ -89,5 +90,16 @@ class Expand(DataStructure):
         :return: None and a list of values.
         :rtype: tuple
         """
+        # This is a circular import.
+        # pylint:disable=cyclic-import
+        # pylint:disable=import-outside-toplevel
+        from jsontas.jsontas import JsonTas
+        jsontas = JsonTas()
+        query_tree = self.dataset.get("query_tree")
         amount = self.data.get("to", 0)
-        return None, [self.data.get("value") for _ in range(amount)]
+
+        evaluated = []
+        for index in range(amount):
+            jsontas.dataset.add("expand_index", index)
+            evaluated.append(jsontas.resolve(json_data=deepcopy(query_tree.get("value"))))
+        return None, evaluated
