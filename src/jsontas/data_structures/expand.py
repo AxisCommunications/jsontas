@@ -100,6 +100,8 @@ class Expand(DataStructure):
 
         evaluated = []
         for index in range(amount):
+            value = deepcopy(query_tree.get("value"))
             jsontas.dataset.add("expand_index", index)
-            evaluated.append(jsontas.resolve(json_data=deepcopy(query_tree.get("value"))))
+            jsontas.dataset.add("expand_value", value)
+            evaluated.append(jsontas.resolve(json_data=value))
         return None, evaluated
