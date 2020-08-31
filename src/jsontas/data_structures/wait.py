@@ -25,6 +25,7 @@ class Wait(DataStructure):
     Wait for a query tree to evaluate to True.
 
     Example::
+
         {
             "$wait": {
                 "for": {
@@ -52,13 +53,13 @@ class Wait(DataStructure):
                         "$wait": {
                             "for": {
                                 "$condition": {
+                                    "then": {
+                                        "$request": {
+                                            "url": "http://example.com",
+                                            "method": "GET"
+                                        }
+                                    },
                                     "if": {
-                                        "then": {
-                                            "$request": {
-                                                "url": "http://example.com",
-                                                "method": "GET"
-                                            }
-                                        },
                                         "key": "$response.status_code",
                                         "operator": "$eq",
                                         "value": 200

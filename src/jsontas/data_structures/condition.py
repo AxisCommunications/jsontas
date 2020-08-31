@@ -32,7 +32,7 @@ class Condition(DataStructure):
                     "operator": "$eq",
                     "value": "something",
                 },
-                "then": "returnvalue"
+                "then": "returnvalue",
                 "else": "Default value"
             }
         }
@@ -53,7 +53,7 @@ class Condition(DataStructure):
                         "value": "somethingelse"
                     }
                 ],
-                "then": "returnvalue"
+                "then": "returnvalue",
                 "else": "Default value"
             }
         }
