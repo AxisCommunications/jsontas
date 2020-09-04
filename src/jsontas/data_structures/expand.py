@@ -94,14 +94,14 @@ class Expand(DataStructure):
         # pylint:disable=cyclic-import
         # pylint:disable=import-outside-toplevel
         from jsontas.jsontas import JsonTas
-        jsontas = JsonTas()
+        jsontas = JsonTas(self.dataset)
         query_tree = self.dataset.get("query_tree")
         amount = self.data.get("to", 0)
 
         evaluated = []
         for index in range(amount):
             value = deepcopy(query_tree.get("value"))
-            jsontas.dataset.add("expand_index", index)
-            jsontas.dataset.add("expand_value", value)
+            self.dataset.add("expand_index", index)
+            self.dataset.add("expand_value", value)
             evaluated.append(jsontas.resolve(json_data=value))
         return None, evaluated

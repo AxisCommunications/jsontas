@@ -124,7 +124,7 @@ class Wait(DataStructure):
         # pylint:disable=cyclic-import
         # pylint:disable=import-outside-toplevel
         from jsontas.jsontas import JsonTas
-        jsontas = JsonTas()
+        jsontas = JsonTas(self.dataset)
         value = None
         query_tree = self.dataset.get("query_tree")
         for value in self.wait(jsontas.resolve,
