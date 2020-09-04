@@ -26,19 +26,21 @@ class Dataset:
     """JSONTas dataset object. Used for lookup of $ notated strings in a JSON file."""
 
     logger = logging.getLogger("Dataset")
-
-    __dataset = {
-        "condition": Condition,
-        "operator": Operator,
-        "list": List,
-        "request": Request,
-        "filter": Filter,
-        "expand": Expand,
-        "from": From,
-        "wait": Wait,
-    }
     # Split value into words separated by anything except ','
     regex = re.compile(r"[\$\-\w!,:]+")
+
+    def __init__(self):
+        """Create an initial dataset of the data structures."""
+        self.__dataset = {
+            "condition": Condition,
+            "operator": Operator,
+            "list": List,
+            "request": Request,
+            "filter": Filter,
+            "expand": Expand,
+            "from": From,
+            "wait": Wait,
+        }
 
     def add(self, key, value):
         """Add a new dataset value and key.

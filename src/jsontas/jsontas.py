@@ -26,9 +26,16 @@ class JsonTas:
 
     logger = logging.getLogger("JSONTas")
 
-    def __init__(self):
-        """Initialize dataset."""
-        self.dataset = Dataset()
+    def __init__(self, dataset=None):
+        """Initialize dataset.
+
+        :param dataset: In order to provide a custom dataset class.
+        :type dataset: :obj:`jsontas.dataset.Dataset`
+        """
+        if dataset is not None:
+            self.dataset = dataset
+        else:
+            self.dataset = Dataset()
 
     @staticmethod
     def __get_key(key, dictionary):
