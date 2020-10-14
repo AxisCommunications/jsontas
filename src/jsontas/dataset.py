@@ -18,6 +18,7 @@ import re
 import logging
 import traceback
 import inspect
+from copy import deepcopy
 from jsontas.data_structures import Condition, Operator, List, Request, Filter, From, Expand, Wait
 from jsontas.data_structures.datastructure import DataStructure
 
@@ -59,6 +60,17 @@ class Dataset:
         :type dataset: dict
         """
         self.__dataset.update(**dataset)
+
+    def copy(self):
+        """Make a copy of this dataset.
+
+        :return: A dataset object with a copy of the internal dataset in it.
+        :rtype: :obj:`Dataset`
+        """
+        copied_dataset = deepcopy(self.__dataset)
+        copy = Dataset()
+        copy.merge(copied_dataset)
+        return copy
 
     def get(self, key, default=None):
         """Get a key from dataset global dictionary.
