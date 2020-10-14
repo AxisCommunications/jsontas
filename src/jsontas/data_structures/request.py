@@ -153,12 +153,26 @@ class Request(DataStructure):
         data = None
         value = None
         for response in response_generator:
-            try:
-                value = response.json()
-                data = {**response.__dict__, "json": value}
-            except JSONDecodeError:
-                value = None
-                data = {**response.__dict__, "json": None}
+            data = {
+                "status_code": response.status_code,
+                "reason": response.reason,
+                "headers": response.headers,
+                "cookies": response.cookies,
+                "content": response.content,
+                "encoding": response.encoding,
+                "is_permanent_redirect": response.is_permanent_redirect,
+                "is_redirect": response.is_redirect,
+                "links": response.links,
+                "ok": response.ok,
+                "url": response.url,
+                "json": None
+            }
+            if response.headers.get("Content-Type") == "application/json":
+                try:
+                    value = response.json()
+                    data["json"] = value
+                except JSONDecodeError:
+                    pass
             break
         self.dataset.add("response", data)
-        return None, value
+        return None, data
