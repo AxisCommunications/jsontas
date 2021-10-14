@@ -22,3 +22,4 @@ from .filter import Filter
 from .expand import Expand
 from .from_item import From
 from .wait import Wait
+from .reduce import Reduce
