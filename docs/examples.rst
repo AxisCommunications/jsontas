@@ -398,6 +398,53 @@ They are:
 * :$regex: :obj:`jsontas.data_structures.operator.Operator._regex`
 
 
+Reduce
+------
+
+:obj:`jsontas.data_structures.reduce`
+
+Reduce a list from end to beginning (from right) to a specific value.
+
+Dataset
+^^^^^^^
+
+.. code-block:: json
+
+   {
+      "max_list_length": 2
+   }
+
+JSON
+^^^^
+
+.. code-block:: json
+
+   {
+      "reduced_list": {
+         "$reduce": {
+            "list": [
+               "element 1",
+               "element 2",
+               "element 3"
+            ],
+            "to": "$max_list_length"
+         }
+      }
+   }
+
+Result
+^^^^^^
+
+.. code-block:: json
+
+   {
+      "reduced_list": [
+            "element 1",
+            "element 2"
+      ]
+   }
+
+
 Request
 -------
 
