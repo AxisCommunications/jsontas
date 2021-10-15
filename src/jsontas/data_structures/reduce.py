@@ -27,7 +27,7 @@ class Reduce(DataStructure):
         {
             "reduced_list": {
                 "$reduce": {
-                    "value": [
+                    "list": [
                         "element 1",
                         "element 2",
                         "element 3"
