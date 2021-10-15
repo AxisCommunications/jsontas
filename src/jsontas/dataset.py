@@ -19,7 +19,7 @@ import logging
 import traceback
 import inspect
 from copy import deepcopy
-from jsontas.data_structures import Condition, Operator, List, Request, Filter, From, Expand, Wait
+from jsontas.data_structures import Condition, Operator, List, Request, Filter, From, Expand, Wait, Reduce
 from jsontas.data_structures.datastructure import DataStructure
 
 
@@ -41,6 +41,7 @@ class Dataset:
             "expand": Expand,
             "from": From,
             "wait": Wait,
+            "reduce": Reduce
         }
 
     def add(self, key, value):
