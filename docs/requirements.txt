@@ -1,2 +1,2 @@
-pyscaffold==3.2.3
+pyscaffold==3.3.1
 m2r==0.2.1
